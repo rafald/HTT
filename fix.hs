@@ -1,7 +1,7 @@
 # How should one explain recursion?  It’s simple.  If you want to refer to yourself, you need to give yourself a name.  
 # “I” will do, but so will any other name, by the miracle of α-conversion.  
 # A computation is given a name using a fixed point (not fixpoint, dammit) operator:  
-#     fix x is e stands for the expression e named x for use within e.  
+#     "fix x is e" stands for the expression e named x for use within e.  
 # Using it, the textbook example of the factorial function is written thus:
 
 fix f is fun n : nat in case n {zero => 1 | succ(n') => n * f n'}
@@ -35,3 +35,4 @@ fix f is fun (n : nat, m:nat) in case n {zero => m | succ(n') => f (n',n*m)}
 
 
 fixPoint f x = let x' = f x in if x == x' then x else fixPoint f x'
+fix fp is fixPoint f x = let x' = f x in if x == x' then x else fp f x'
